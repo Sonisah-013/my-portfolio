@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soni Sah | AI/ML Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<!-- base.html (just before </body>) -->
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
+<body>
+    <header class="topnav">
+        <div class="nav-container">
+            <a href="{% url 'home' %}" class="brand">SONI<span class="accent-dot">.</span></a>
+            <nav class="nav-links">
+                <a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a>
+                <a href="{% url 'about' %}" class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">About</a>
+                <a href="{% url 'projects' %}" class="{% if request.resolver_match.url_name == 'projects' %}active{% endif %}">Projects</a>
+                <a href="{% url 'blog' %}" class="{% if request.resolver_match.url_name == 'blog' %}active{% endif %}">Log</a>
+                <a href="{% url 'contact' %}" class="{% if request.resolver_match.url_name == 'contact' %}active{% endif %}">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    
+
+    <main>
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <div class="message {{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer style="margin-top: 100px; padding: 40px; text-align: center; border-top: 1px solid var(--border-color);">
+        <p style="color: var(--text-secondary);">&copy; {% now "Y" %} Soni Kumari Sah. Engineered with Django.</p>
+        <div style="margin-top: 15px;">
+            <a href="https://github.com/Sonisah-013" target="_blank" style="color: var(--text-secondary); margin: 0 10px;"><i class="fa-brands fa-github"></i></a>
+            <a href="https://linkedin.com/in/soni-sah-630b06323" target="_blank" style="color: var(--text-secondary); margin: 0 10px;"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+    </footer>
+</body>
+</html>

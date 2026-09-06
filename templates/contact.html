@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="main-content">
+    <div style="max-width: 800px; margin: 0 auto;">
+        <h1 class="animate-fade-in">Get In Touch</h1>
+        <p style="color: var(--text-secondary); margin-bottom: 40px;">Open for collaborations, internships, or technical discussions.</p>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px;">
+            <div>
+                <div class="card" style="margin-bottom: 20px;">
+                    <p class="subtitle">Email</p>
+                    <a href="mailto:sonisah013@gmail.com" style="color: white; text-decoration: none;">sonisah013@gmail.com</a>
+                </div>
+                <div class="card">
+                    <p class="subtitle">Socials</p>
+                    <a href="https://linkedin.com/in/soni-sah-630b06323" target="_blank" class="tag">LinkedIn</a>
+                    <a href="https://github.com/Sonisah-013" target="_blank" class="tag">GitHub</a>
+                </div>
+            </div>
+
+            <form method="POST" action="{% url 'contact' %}" class="card">
+                {% csrf_token %}
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; font-size: 0.8rem; color: var(--text-secondary);">Name</label>
+                    {{ form.name }}
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; font-size: 0.8rem; color: var(--text-secondary);">Email</label>
+                    {{ form.email }}
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; font-size: 0.8rem; color: var(--text-secondary);">Message</label>
+                    {{ form.message }}
+                </div>
+                <button type="submit" class="btn-link" style="width: 100%; border: none; cursor: pointer;">Send Message</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Targeting Django form inputs */
+    input, textarea {
+        width: 100%; padding: 12px; background: #0f172a; border: 1px solid var(--border-color);
+        border-radius: 8px; color: white; margin-top: 5px;
+    }
+</style>
+{% endblock %}

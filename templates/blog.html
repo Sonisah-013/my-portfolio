@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="main-content">
+    <h1>Technical Blog</h1>
+    <p style="color: var(--text-secondary); margin-bottom: 50px;">Documenting my journey and research in AI.</p>
+
+    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 40px;">
+        <div class="posts">
+            <article class="card" style="margin-bottom: 30px;">
+                <span class="tag">Deep Learning</span>
+                <h2 style="margin-top: 15px;">Building RAG-based Q&A Systems</h2>
+                <p style="color: var(--text-secondary); margin: 15px 0;">Exploring the implementation of Vector Databases and LangChain...</p>
+                <span style="font-size: 0.8rem; color: var(--accent-cyan);">Coming Soon</span>
+            </article>
+            
+            <article class="card">
+                <span class="tag">Data Science</span>
+                <h2 style="margin-top: 15px;">Tesla Stock Prediction Logic</h2>
+                <p style="color: var(--text-secondary); margin: 15px 0;">Why LSTMs are the go-to for time-series forecasting...</p>
+                <span style="font-size: 0.8rem; color: var(--accent-cyan);">Coming Soon</span>
+            </article>
+        </div>
+        
+        <aside>
+            <div class="card">
+                <h3>Categories</h3>
+                <ul style="list-style: none; margin-top: 20px; color: var(--text-secondary);">
+                    <li style="margin-bottom: 10px;">Artificial Intelligence (2)</li>
+                    <li style="margin-bottom: 10px;">Backend Dev (1)</li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+</div>
+{% endblock %}

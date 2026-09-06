@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="main-content">
+    <header style="margin-bottom: 50px;">
+        <h1 class="animate-fade-in">Selected Projects</h1>
+        <p style="color: var(--text-secondary);">A collection of my work in AI and Web Systems.</p>
+    </header>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px;">
+        {% for project in projects %}
+        <article class="card">
+            <h3 style="color: var(--accent-cyan); margin-bottom: 10px;">{{ project.title }}</h3>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 20px;">{{ project.description }}</p>
+            <div style="margin-bottom: 25px;">
+                <code style="font-size: 0.8rem; color: var(--accent-blue);">{{ project.tech_stack }}</code>
+            </div>
+            {% if project.github_url %}
+            <a href="{{ project.github_url }}" class="btn-link" target="_blank" style="width: 100%; text-align: center;">
+                View Source <i class="fa-brands fa-github" style="margin-left: 8px;"></i>
+            </a>
+            {% endif %}
+        </article>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
