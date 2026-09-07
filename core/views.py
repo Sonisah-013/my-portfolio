@@ -87,14 +87,16 @@ def contact(request):
                 return redirect('contact')
                 
             except Exception as e:
-                # Log the exact error to your console/terminal for debugging
-                logger.error(f"❌ Failed to send email: {e}")
-                messages.error(request, "Email failed to send, but your message was saved in the Database. Please try again later.")
-                
-                # Optional: Return render instead of redirect so the user doesn't lose their typed message
-                # return render(request, 'contact.html', {'form': form})
-                return redirect('contact')
+                print("EMAIL ERROR:", repr(e))
+                logger.exception("Email sending failed")
+
+                messages.error(
+                    request,
+                    "Email failed, but your message was saved."
+                )
+
+                return redirect("contact")
     else:
-        form = ContactForm()
+        form = ContactForm() 
     
     return render(request, 'contact.html', {'form': form})
