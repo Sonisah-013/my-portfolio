@@ -83,6 +83,7 @@ def contact(request):
                 messages.success(request, "Success! Your message was sent to Soni's inbox.")
                 print("✅ Email sent successfully.")
                 
+                
                 return redirect('contact')
                 
             except Exception as e:
