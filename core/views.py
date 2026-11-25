@@ -30,10 +30,10 @@ def projects(request):
             'github_url': 'https://github.com/Sonisah-013/Django.git'
         },
         {
-            'title': 'RAG-based Q&A System',
-            'description': 'A Retrieval-Augmented Generation system using LangChain and Vector Databases to provide context-aware answers.',
+            'title': 'RAG_QA_System_Base',
+            'description': 'A Retrieval-Augmented Generation (RAG) pipeline for grounded Q&A over PDF and text documents, built with LangChain, ChromaDB, and Groq.',
             'tech_stack': 'Python, LangChain, Pinecone, OpenAI API',
-            'github_url': 'https://github.com/Sonisah-013/RAG_QA_System.git'
+            'github_url': 'https://github.com/Sonisah-013/RAG_QA_System_Base.git'
         },
         {
             'title': 'Tesla Stock Price Predictor',
@@ -42,10 +42,16 @@ def projects(request):
             'github_url': 'https://github.com/Sonisah-013/TSLA_Stock_System.git'
         },
         {
-            'title': 'Laptop Price Regressor',
-            'description': 'A Machine Learning application that estimates the price of laptops based on hardware specifications.',
-            'tech_stack': 'Flask, Scikit-learn, Seaborn, NumPy',
-            'github_url': 'https://github.com/Sonisah-013/Laptop_Price_Predictor.git'
+            'title': 'Student-Lead-Analysis',
+            'description': 'Analysis of student leads: demand by course and area, student groups, and interest prediction.',
+            'tech_stack': 'Python, Pandas, Matplotlib, Scikit-learn',
+            'github_url': 'https://github.com/Sonisah-013/Student-Lead-Analysis.git'
+        },
+        {
+            'title': 'insurance-charges-analysis',
+            'description': 'EDA and machine learning models predicting health insurance charges based on age, BMI, smoking status, and other factors',
+            'tech_stack': 'Python, Pandas, Matplotlib, Scikit-learn',
+            'github_url': 'https://github.com/Sonisah-013/insurance-charges-analysis.git'
         },
     ]
     return render(request, 'projects.html', {'projects': project_list})
